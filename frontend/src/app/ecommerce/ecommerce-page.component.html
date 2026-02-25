@@ -1,0 +1,45 @@
+<div class="min-h-screen bg-slate-50">
+  <div class="mx-auto max-w-6xl px-4 py-10 sm:py-12 lg:py-16">
+    <section class="mb-10">
+      <p class="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+        E-commerce Services
+      </p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        End-to-end E-commerce IT Solutions
+      </h1>
+      <p class="mt-4 max-w-3xl text-slate-600">
+        We design, build and support secure, scalable e-commerce platforms for web and
+        mobile. Our team covers storefront UX, payment integrations, order management and
+        the infrastructure needed to keep everything fast and reliable.
+      </p>
+    </section>
+
+    <div
+      *ngIf="error"
+      class="mb-8 rounded-md bg-red-50 px-4 py-3 text-sm text-red-700"
+    >
+      {{ error }}
+    </div>
+
+    <div
+      *ngIf="!error && services.length === 0"
+      class="py-8 text-center text-slate-500"
+    >
+      Loading services...
+    </div>
+
+    <ng-container *ngIf="services.length > 0">
+      <app-services-section [services]="services"></app-services-section>
+
+      <app-tech-stack-section
+        class="mt-12"
+        [techGroups]="techGroups"
+      ></app-tech-stack-section>
+
+      <app-faq-section
+        class="mt-12"
+        [faqs]="faqs"
+      ></app-faq-section>
+    </ng-container>
+  </div>
+</div>

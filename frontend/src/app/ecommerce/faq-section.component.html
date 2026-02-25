@@ -1,0 +1,28 @@
+<section>
+  <h2 class="text-xl font-semibold text-slate-900">
+    FAQ
+  </h2>
+  <p class="mt-2 max-w-2xl text-sm text-slate-600">
+    Common questions clients ask when we design their e-commerce solutions.
+  </p>
+
+  <div class="mt-4 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
+    <div *ngFor="let faq of faqs" class="px-4 py-3 sm:px-6">
+      <button
+        type="button"
+        class="flex w-full items-center justify-between py-1 text-left"
+        (click)="toggleFaq(faq.id)"
+      >
+        <span class="text-sm font-medium text-slate-900">
+          {{ faq.question }}
+        </span>
+        <span class="ml-4 text-xs text-slate-500">
+          {{ expandedFaqId === faq.id ? '−' : '+' }}
+        </span>
+      </button>
+      <div *ngIf="expandedFaqId === faq.id" class="mt-2 text-sm text-slate-600">
+        {{ faq.answer }}
+      </div>
+    </div>
+  </div>
+</section>
